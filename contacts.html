@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — ArtSpace</title>
+  <meta name="description" content="Контакты ArtSpace, форма обратной связи и ответы на частые вопросы.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body data-page="contacts">
+  <a class="visually-hidden-focusable position-absolute p-2 bg-white" href="#main">Перейти к содержимому</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark as-navbar sticky-top" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">
+        <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+        <span>ArtSpace</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="catalog.html">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product.html">Событие</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="order.html">Запись</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Разделы
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="index.html#popular">Популярное на неделе</a></li>
+            <li><a class="dropdown-item" href="index.html#directions">Направления</a></li>
+            <li><a class="dropdown-item" href="index.html#quiz">Подобрать событие</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span>Контакты</span></li>
+      </ol>
+    </nav>
+        <h1 class="h2 mb-1">Контакты</h1>
+        <p class="mb-0 text-body-secondary">Свяжитесь с нами: предложите событие, сообщите об ошибке или обсудите сотрудничество.</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h2 class="h4">О платформе</h2>
+              <p class="text-body-secondary">ArtSpace — сервис для поиска концертов, выставок и театральных постановок. Мы работаем с крупными площадками и небольшими независимыми пространствами.</p>
+
+              <h2 class="h5 mt-4">Связаться с нами</h2>
+              <dl class="row mb-3">
+                <dt class="col-4">Телефон</dt>
+                <dd class="col-8"><a href="tel:+79000000000">+7 (900) 000-00-00</a></dd>
+                <dt class="col-4">Почта</dt>
+                <dd class="col-8"><a href="mailto:hello@artspace.example">hello@artspace.example</a></dd>
+                <dt class="col-4">Офис</dt>
+                <dd class="col-8">Москва, Культурный квартал, д. 12, офис 4</dd>
+                <dt class="col-4">Часы</dt>
+                <dd class="col-8 mb-0">пн–пт, 10:00–19:00</dd>
+              </dl>
+
+              <h2 class="h5">Мы в соцсетях</h2>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-primary btn-sm" href="https://vk.com" target="_blank" rel="noopener">ВКонтакте</a>
+                <a class="btn btn-outline-primary btn-sm" href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+                <a class="btn btn-outline-primary btn-sm" href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h2 class="h4 mb-0">Обратная связь</h2>
+            </div>
+            <div class="card-body">
+              <div id="form-status" aria-live="polite"></div>
+              <form id="feedback-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="feedback-topic" class="form-label">Тема обращения *</label>
+                    <select id="feedback-topic" name="topic" class="form-select" required>
+                      <option value="">Выберите тему</option>
+                      <option value="suggest">Предложить событие</option>
+                      <option value="bug">Сообщить об ошибке</option>
+                      <option value="partner">Сотрудничество</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="feedback-name" class="form-label">Имя *</label>
+                    <input id="feedback-name" name="name" type="text" class="form-control" autocomplete="name" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="feedback-email" class="form-label">E-mail *</label>
+                    <input id="feedback-email" name="email" type="email" class="form-control" autocomplete="email" placeholder="name@mail.ru" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-12">
+                    <label for="feedback-message" class="form-label">Сообщение *</label>
+                    <textarea id="feedback-message" name="message" class="form-control" rows="5" required></textarea>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input id="feedback-agree" name="agree" class="form-check-input" type="checkbox" required>
+                      <label class="form-check-label" for="feedback-agree">Я согласен на обработку персональных данных *</label>
+                      <div class="invalid-feedback"></div>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex flex-wrap gap-2">
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+                    <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="faq" class="mt-5" aria-labelledby="faq-title">
+        <h2 class="section-title mb-4" id="faq-title">Частые вопросы</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">Как записаться на событие?</button>
+            </h3>
+            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Откройте страницу события, выберите тариф, укажите количество гостей и заполните форму записи. Подтверждение придёт на указанную почту.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">Можно ли отменить запись?</button>
+            </h3>
+            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Да, не позднее чем за 24 часа до начала события. Напишите нам через форму обратной связи и укажите номер заявки.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">Как добавить своё событие на платформу?</button>
+            </h3>
+            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Выберите в форме обратной связи тему «Предложить событие» и опишите мероприятие: дату, площадку и формат. Мы свяжемся с вами в течение двух рабочих дней.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">Как попасть на онлайн-событие?</button>
+            </h3>
+            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">После записи вы получите ссылку на трансляцию. Доступ открывается за 15 минут до начала.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">Есть ли скидки для студентов и семей?</button>
+            </h3>
+            <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">На большинстве событий есть льготный тариф. Семейные события отмечены меткой «Для всей семьи».</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-5">
+          <a class="brand text-white text-decoration-none mb-3" href="index.html">
+            <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+            <span>ArtSpace</span>
+          </a>
+          <p class="mb-0">Платформа для поиска концертов, выставок и театральных постановок — от больших городских событий до камерных вечеров.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="footer__title">Разделы</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="catalog.html">Каталог событий</a></li>
+            <li><a class="footer__link" href="index.html#directions">Направления</a></li>
+            <li><a class="footer__link" href="order.html">Запись на посещение</a></li>
+            <li><a class="footer__link" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="footer__title">Контакты</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+            <li><a class="footer__link" href="mailto:hello@artspace.example">hello@artspace.example</a></li>
+            <li><a class="footer__link" href="contacts.html">Все контакты</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 ArtSpace. Учебный проект: события и площадки вымышлены.</span>
+        <span>Контрольная работа №2 · Bootstrap 5.3.8</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="btn btn-primary to-top" id="toTop" aria-label="Наверх" hidden>&uarr;</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

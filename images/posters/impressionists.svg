@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Постер: Импрессионисты: свет и цвет">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f766e"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient>
+<linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient></defs>
+<rect width="600" height="400" fill="url(#g)"/><circle cx="430" cy="110" r="85" fill="#fff" opacity=".13"/><circle cx="500" cy="150" r="60" fill="#ffb347" opacity=".35"/><rect x="330" y="60" width="120" height="120" rx="14" fill="#fff" opacity=".1" transform="rotate(14 390 120)"/>
+<rect width="600" height="400" fill="url(#s)"/>
+<text x="564" y="52" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#fff" opacity=".85">ЖИВОПИСЬ</text>
+<text font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#fff"><tspan x="36" y="292">Импрессионисты:</tspan><tspan x="36" y="330">свет и цвет</tspan></text>
+</svg>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог событий — ArtSpace</title>
+  <meta name="description" content="Каталог концертов, выставок и спектаклей с фильтрами по направлению, городу, дате, цене и формату.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body data-page="catalog">
+  <a class="visually-hidden-focusable position-absolute p-2 bg-white" href="#main">Перейти к содержимому</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark as-navbar sticky-top" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">
+        <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+        <span>ArtSpace</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="catalog.html">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product.html">Событие</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="order.html">Запись</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacts.html">Контакты</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Разделы
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="index.html#popular">Популярное на неделе</a></li>
+            <li><a class="dropdown-item" href="index.html#directions">Направления</a></li>
+            <li><a class="dropdown-item" href="index.html#quiz">Подобрать событие</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span>Каталог</span></li>
+      </ol>
+    </nav>
+        <h1 class="h2 mb-1">Каталог событий</h1>
+        <p class="mb-0 text-body-secondary">Концерты, выставки, спектакли и мастер-классы в вашем городе и онлайн.</p>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        Фильтры работают без перезагрузки страницы. Выбранные параметры показываются метками — нажмите &times;, чтобы снять фильтр.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+      </div>
+
+      <div class="row g-4">
+        <aside class="col-12 col-lg-3" aria-label="Фильтры">
+          <button
+            class="btn btn-outline-primary w-100 d-lg-none mb-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#filtersPanel"
+            aria-expanded="false"
+            aria-controls="filtersPanel"
+          >Фильтры и поиск</button>
+
+          <div class="collapse d-lg-block" id="filtersPanel">
+            <form id="filters-form" class="filters card card-body shadow-sm" role="search">
+              <div class="mb-3">
+                <label for="f-q" class="form-label">Поиск по названию</label>
+                <div class="input-group">
+                  <span class="input-group-text" aria-hidden="true">🔍</span>
+                  <input id="f-q" name="q" type="search" class="form-control" placeholder="Например, джаз">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="f-category" class="form-label">Направление</label>
+                <select id="f-category" name="category" class="form-select">
+                  <option value="">Все направления</option>
+                  <option value="music">Музыка</option>
+                  <option value="painting">Живопись</option>
+                  <option value="theatre">Театр</option>
+                  <option value="photography">Фотография</option>
+                  <option value="contemporary">Современное искусство</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="f-city" class="form-label">Город</label>
+                <select id="f-city" name="city" class="form-select">
+                  <option value="">Все города</option>
+                  <option value="Москва">Москва</option>
+                  <option value="Санкт-Петербург">Санкт-Петербург</option>
+                  <option value="Казань">Казань</option>
+                  <option value="Екатеринбург">Екатеринбург</option>
+                  <option value="Онлайн">Онлайн</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="f-date" class="form-label">Дата</label>
+                <select id="f-date" name="date" class="form-select">
+                  <option value="">Любая дата</option>
+                  <option value="week">Эта неделя (2–8 ноября)</option>
+                  <option value="2026-11">Ноябрь 2026</option>
+                  <option value="2026-12">Декабрь 2026</option>
+                  <option value="2027-01">Январь 2027</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="f-price" class="form-label">Цена</label>
+                <select id="f-price" name="price" class="form-select">
+                  <option value="">Любая цена</option>
+                  <option value="free">Бесплатно</option>
+                  <option value="low">До 1 000 ₽</option>
+                  <option value="mid">1 000–2 500 ₽</option>
+                  <option value="high">Более 2 500 ₽</option>
+                </select>
+              </div>
+
+              <fieldset class="mb-3">
+                <legend class="form-label fs-6">Формат участия</legend>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="format" id="f-format-any" value="" checked>
+                  <label class="form-check-label" for="f-format-any">Любой</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="format" id="f-format-offline" value="offline">
+                  <label class="form-check-label" for="f-format-offline">Офлайн</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="format" id="f-format-online" value="online">
+                  <label class="form-check-label" for="f-format-online">Онлайн</label>
+                </div>
+              </fieldset>
+
+              <button type="button" class="btn btn-outline-secondary js-reset-filters">Сбросить фильтры</button>
+            </form>
+          </div>
+        </aside>
+
+        <section class="col-12 col-lg-9" aria-labelledby="results-title">
+          <h2 class="visually-hidden" id="results-title">Результаты поиска</h2>
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <p class="mb-0 fw-semibold" id="results-count" aria-live="polite"></p>
+            <div class="d-flex align-items-center gap-2">
+              <label for="f-sort" class="form-label mb-0 text-nowrap">Сортировка</label>
+              <select id="f-sort" class="form-select w-auto">
+                <option value="date">Сначала ближайшие</option>
+                <option value="popular">Сначала популярные</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+            <div id="active-filters" class="d-flex flex-wrap gap-2"></div>
+            <button type="button" id="reset-filters" class="btn btn-link btn-sm js-reset-filters" hidden>Сбросить всё</button>
+          </div>
+
+          <div id="events-grid" class="row g-4"></div>
+
+          <div id="empty-state" class="alert alert-warning mt-3" role="status" hidden>
+            <p class="mb-2">По вашему запросу ничего не найдено. Попробуйте изменить параметры.</p>
+            <button type="button" class="btn btn-sm btn-primary js-reset-filters">Сбросить фильтры</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="eventModalLabel">Событие</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex flex-wrap gap-1 mb-3" id="eventModalLabels"></div>
+          <dl class="row mb-3">
+            <dt class="col-4">Дата</dt>
+            <dd class="col-8" id="eventModalDate"></dd>
+            <dt class="col-4">Место</dt>
+            <dd class="col-8" id="eventModalPlace"></dd>
+            <dt class="col-4">Цена</dt>
+            <dd class="col-8 mb-0" id="eventModalPrice"></dd>
+          </dl>
+          <p class="mb-0 text-body-secondary" id="eventModalText"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <a id="eventModalLink" class="btn btn-primary" href="catalog.html">Перейти на страницу события</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-5">
+          <a class="brand text-white text-decoration-none mb-3" href="index.html">
+            <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+            <span>ArtSpace</span>
+          </a>
+          <p class="mb-0">Платформа для поиска концертов, выставок и театральных постановок — от больших городских событий до камерных вечеров.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="footer__title">Разделы</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="catalog.html">Каталог событий</a></li>
+            <li><a class="footer__link" href="index.html#directions">Направления</a></li>
+            <li><a class="footer__link" href="order.html">Запись на посещение</a></li>
+            <li><a class="footer__link" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="footer__title">Контакты</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+            <li><a class="footer__link" href="mailto:hello@artspace.example">hello@artspace.example</a></li>
+            <li><a class="footer__link" href="contacts.html">Все контакты</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 ArtSpace. Учебный проект: события и площадки вымышлены.</span>
+        <span>Контрольная работа №2 · Bootstrap 5.3.8</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="btn btn-primary to-top" id="toTop" aria-label="Наверх" hidden>&uarr;</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

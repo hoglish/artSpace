@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Событие — ArtSpace</title>
+  <meta name="description" content="Страница события: описание, программа, площадка, тарифы и запись на посещение.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body data-page="product">
+  <a class="visually-hidden-focusable position-absolute p-2 bg-white" href="#main">Перейти к содержимому</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark as-navbar sticky-top" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand brand" href="index.html">
+        <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+        <span>ArtSpace</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="catalog.html">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="product.html">Событие</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="order.html">Запись</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacts.html">Контакты</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Разделы
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="index.html#popular">Популярное на неделе</a></li>
+            <li><a class="dropdown-item" href="index.html#directions">Направления</a></li>
+            <li><a class="dropdown-item" href="index.html#quiz">Подобрать событие</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item"><a href="catalog.html">Каталог</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span id="crumb-title">Событие</span></li>
+      </ol>
+    </nav>
+        <div class="d-flex flex-wrap gap-2 mb-2" id="event-labels"></div>
+        <p class="event-card__category mb-1" id="event-category">Направление</p>
+        <h1 class="h2 mb-1" id="event-title">Событие</h1>
+        <p class="lead mb-0 text-body-secondary" id="event-short"></p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="alert alert-warning" role="alert">
+        Количество мест ограничено. Запись подтверждается письмом на указанный e-mail.
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-7">
+          <img id="event-poster" class="event-poster shadow-sm mb-4" src="images/posters/jazz-night.svg" alt="Постер события" width="600" height="400">
+
+          <ul class="nav nav-tabs" id="eventTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-desc-btn" data-bs-toggle="tab" data-bs-target="#tab-desc" type="button" role="tab" aria-controls="tab-desc" aria-selected="true">Описание</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-program-btn" data-bs-toggle="tab" data-bs-target="#tab-program" type="button" role="tab" aria-controls="tab-program" aria-selected="false">Программа</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-venue-btn" data-bs-toggle="tab" data-bs-target="#tab-venue" type="button" role="tab" aria-controls="tab-venue" aria-selected="false">Площадка</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-rules-btn" data-bs-toggle="tab" data-bs-target="#tab-rules" type="button" role="tab" aria-controls="tab-rules" aria-selected="false">Правила</button>
+            </li>
+          </ul>
+          <div class="tab-content border border-top-0 rounded-bottom bg-white p-4">
+            <div class="tab-pane fade show active" id="tab-desc" role="tabpanel" aria-labelledby="tab-desc-btn" tabindex="0">
+              <h2 class="h5">О событии</h2>
+              <p class="mb-0" id="event-description"></p>
+            </div>
+            <div class="tab-pane fade" id="tab-program" role="tabpanel" aria-labelledby="tab-program-btn" tabindex="0">
+              <h2 class="h5">Программа</h2>
+              <ul class="list-group list-group-flush" id="event-program"></ul>
+            </div>
+            <div class="tab-pane fade" id="tab-venue" role="tabpanel" aria-labelledby="tab-venue-btn" tabindex="0">
+              <h2 class="h5">Площадка</h2>
+              <dl class="row mb-0">
+                <dt class="col-sm-4">Название</dt>
+                <dd class="col-sm-8" id="event-venue-name"></dd>
+                <dt class="col-sm-4">Адрес</dt>
+                <dd class="col-sm-8" id="event-address"></dd>
+                <dt class="col-sm-4">Часы работы</dt>
+                <dd class="col-sm-8 mb-0" id="event-hours"></dd>
+              </dl>
+            </div>
+            <div class="tab-pane fade" id="tab-rules" role="tabpanel" aria-labelledby="tab-rules-btn" tabindex="0">
+              <h2 class="h5">Правила посещения</h2>
+              <div class="accordion" id="rulesAccordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#rule1" aria-expanded="true" aria-controls="rule1">Вход и билеты</button>
+                  </h3>
+                  <div id="rule1" class="accordion-collapse collapse show" data-bs-parent="#rulesAccordion">
+                    <div class="accordion-body">Вход по подтверждению записи. Приходите за 20–30 минут до начала, чтобы спокойно пройти регистрацию.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rule2" aria-expanded="false" aria-controls="rule2">Фото и видео</button>
+                  </h3>
+                  <div id="rule2" class="accordion-collapse collapse" data-bs-parent="#rulesAccordion">
+                    <div class="accordion-body">Съёмка без вспышки разрешена, если организатор не указал иное. Профессиональная съёмка — только по согласованию.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rule3" aria-expanded="false" aria-controls="rule3">Дети и возврат</button>
+                  </h3>
+                  <div id="rule3" class="accordion-collapse collapse" data-bs-parent="#rulesAccordion">
+                    <div class="accordion-body">Дети допускаются в сопровождении взрослых. Отменить запись можно не позднее чем за 24 часа до начала.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <aside class="event-aside card shadow-sm" aria-label="Основная информация">
+            <div class="card-body">
+              <h2 class="h5 mb-3">Информация</h2>
+              <dl class="event-facts row mb-3">
+                <dt class="col-5">Дата и время</dt>
+                <dd class="col-7" id="event-datetime"></dd>
+                <dt class="col-5">Место</dt>
+                <dd class="col-7" id="event-place"></dd>
+                <dt class="col-5">Формат</dt>
+                <dd class="col-7" id="event-format"></dd>
+                <dt class="col-5">Стоимость</dt>
+                <dd class="col-7 fw-bold fs-5" id="event-price"></dd>
+              </dl>
+              <div class="d-grid gap-2 mb-4">
+                <a class="btn btn-primary btn-lg" href="#booking">Записаться</a>
+                <a class="btn btn-outline-secondary" href="catalog.html">Назад в каталог</a>
+              </div>
+              <h2 class="h6 text-uppercase text-body-secondary">Организатор</h2>
+              <p class="fw-semibold mb-1" id="event-organizer"></p>
+              <a id="event-organizer-link" href="catalog.html">Другие события организатора</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <section id="tariffs" class="mt-5" aria-labelledby="tariffs-title">
+        <h2 class="h4 mb-3" id="tariffs-title">Тарифы</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered align-middle bg-white">
+            <thead>
+              <tr><th scope="col">Тариф</th><th scope="col">Что входит</th><th scope="col" class="text-end">Цена</th></tr>
+            </thead>
+            <tbody id="tariffs-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="booking" class="mt-5" aria-labelledby="booking-title">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0" id="booking-title">Запись на посещение</h2>
+              </div>
+              <div class="card-body">
+                <div class="alert alert-info" role="alert">Заполните форму. Поля со звёздочкой обязательны.</div>
+
+          <div id="form-status" aria-live="polite"></div>
+          <form id="booking-form" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="booking-name" class="form-label">Имя *</label>
+                <input id="booking-name" name="name" type="text" class="form-control" autocomplete="name" required>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="booking-email" class="form-label">E-mail *</label>
+                <input id="booking-email" name="email" type="email" class="form-control" autocomplete="email" placeholder="name@mail.ru" required>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="booking-phone" class="form-label">Телефон *</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">+7</span>
+                  <input id="booking-phone" name="phone" type="tel" class="form-control" autocomplete="tel-national" placeholder="900 000-00-00" required>
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="booking-guests" class="form-label">Количество гостей *</label>
+                <input id="booking-guests" name="guests" type="number" min="1" max="10" value="1" class="form-control" required>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="col-12">
+                <label for="booking-tariff" class="form-label">Тариф *</label>
+                <select id="booking-tariff" name="tariff" class="form-select" required>
+                  <option value="">Выберите тариф</option>
+                </select>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <div class="col-12">
+                <label for="booking-comment" class="form-label">Комментарий</label>
+                <textarea id="booking-comment" name="comment" class="form-control" rows="3" placeholder="Пожелания, вопросы организатору"></textarea>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input id="booking-agree" name="agree" class="form-check-input" type="checkbox" required>
+                  <label class="form-check-label" for="booking-agree">Я согласен на обработку персональных данных *</label>
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <button class="btn btn-primary btn-lg" type="submit">Записаться</button>
+                <button class="btn btn-outline-secondary btn-lg" type="reset">Очистить</button>
+              </div>
+            </div>
+          </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-5">
+          <a class="brand text-white text-decoration-none mb-3" href="index.html">
+            <img class="brand__logo" src="images/logo.svg" alt="" width="32" height="32">
+            <span>ArtSpace</span>
+          </a>
+          <p class="mb-0">Платформа для поиска концертов, выставок и театральных постановок — от больших городских событий до камерных вечеров.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="footer__title">Разделы</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="catalog.html">Каталог событий</a></li>
+            <li><a class="footer__link" href="index.html#directions">Направления</a></li>
+            <li><a class="footer__link" href="order.html">Запись на посещение</a></li>
+            <li><a class="footer__link" href="contacts.html#faq">Вопросы и ответы</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="footer__title">Контакты</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+            <li><a class="footer__link" href="mailto:hello@artspace.example">hello@artspace.example</a></li>
+            <li><a class="footer__link" href="contacts.html">Все контакты</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 ArtSpace. Учебный проект: события и площадки вымышлены.</span>
+        <span>Контрольная работа №2 · Bootstrap 5.3.8</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="btn btn-primary to-top" id="toTop" aria-label="Наверх" hidden>&uarr;</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
